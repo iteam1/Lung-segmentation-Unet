@@ -4,6 +4,8 @@
 
 - Number of image in dataset: 139 
 
+- Image shape (1024,1024,3), (512,512,3)
+
 
 # References
 
