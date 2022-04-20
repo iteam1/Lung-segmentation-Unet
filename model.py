@@ -73,6 +73,4 @@ if __name__ == '__main__':
     model.summary()
     plot_model(model,show_shapes = True)
      
-     
-     
     
