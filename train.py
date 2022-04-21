@@ -58,7 +58,8 @@ def read_image(path,target_size = (512,512)):
     '''
     image = tf.keras.preprocessing.image.load_img(path,target_size = target_size)
     image_tensor = tf.keras.preprocessing.image.img_to_array(image)
-    image_tensor = tf.expand_dims(image_tensor,axis = 0) 
+    image_tensor = image_tensor /255.
+    #image_tensor = tf.expand_dims(image_tensor,axis = 0) 
     return image_tensor
 
 def read_mask(path1,path2):
@@ -73,20 +74,23 @@ def read_mask(path1,path2):
     x2 = tf.keras.preprocessing.image.load_img(path2,target_size = (512,512))
     x2 = tf.keras.preprocessing.image.img_to_array(x2)
     x = x1 + x2
+    x = x.sum(axis =2)
     x = x/255. # Scale it
-    x = (x > 0.5) * 255.
-    x = tf.expand_dims(x,aixs = 0)
+    x = (x > 0.5) * 1
+    x = x.reshape((512,512,1))
     return x
-        
+       
 if __name__ == '__main__':
     
     # Seeding
     np.random.seed(42)
-    np.random.set_seed(42)
+    np.random.seed(42)
     
     # Directory for storing training files
     create_dir(f_name)
     
     # Load dataset
-
-
+    (train_x,train_y1,train_y2),(valid_x,valid_y1,valid_y2),(test_x,test_y1,test_y2) = load_data()
+    print(f"Train: {len(train_x)} | {len(train_y1)} | {len(train_y2)} |")
+    print(f"Valid: {len(valid_x)} | {len(valid_y1)} | {len(valid_y2)} |")
+    print(f"Test: {len(test_x)} | {len(test_y1)} | {len(test_y2)} |")
