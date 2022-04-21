@@ -78,7 +78,7 @@ def read_mask(path1,path2):
     x = x1 + x2
     x = x.sum(axis =2)
     x = x/255. # Scale it
-    x = (x > 0.5) * 1
+    x = (x > 0.5) *1
     x = x.reshape((512,512,1))
     return x
 
