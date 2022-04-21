@@ -129,8 +129,8 @@ if __name__ == '__main__':
             )
     
     # Save model
-    pd.Dataframe(history.history).plot()
-    plt.savefig()
-
+    model1.save("./files/model_lung_unet1.h5")
     
-    
+    # save loss curve
+    pd.DataFrame(history.history).plot()
+    plt.savefig('./files/loss_curve.png')
