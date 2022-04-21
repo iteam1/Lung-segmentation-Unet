@@ -2,11 +2,13 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2' # disable show warning
 import glob
 import numpy as np
+import pandas as pd
 import tensorflow as tf 
 from tensorflow.keras.callbacks import ModelCheckpoint,CSVLogger,ReduceLROnPlateau
 from tensorflow.keras.optimizers import Adam 
 from tensorflow.keras.metrics import Recall,Precision
 from sklearn.model_selection import train_test_split
+from tqdm import tqdm
 from model import build_unet
 from metrics import dice_loss,dice_coef,iou
 
@@ -79,6 +81,15 @@ def read_mask(path1,path2):
     x = (x > 0.5) * 1
     x = x.reshape((512,512,1))
     return x
+
+def make_data(x,y1,y2):
+    X  =np.zeros(shape = (len(x),512,512,3))
+    y = np.zeros(shape = (len(x),512,512,1))
+    for i in tqdm(range(len(x))):
+        X[i] = read_image(x[i],target_size = (512,512))
+        y[i] = read_mask(y1[i],y2[i])
+        
+    return X,y
        
 if __name__ == '__main__':
     
@@ -92,5 +103,34 @@ if __name__ == '__main__':
     # Load dataset
     (train_x,train_y1,train_y2),(valid_x,valid_y1,valid_y2),(test_x,test_y1,test_y2) = load_data()
     print(f"Train: {len(train_x)} | {len(train_y1)} | {len(train_y2)} |")
+    X_train,y_train = make_data(x_train,y1_train,y2_train)
     print(f"Valid: {len(valid_x)} | {len(valid_y1)} | {len(valid_y2)} |")
+    X_valid,y_valid = make_data(x_valid,y1_valid,y2_valid)
     print(f"Test: {len(test_x)} | {len(test_y1)} | {len(test_y2)} |")
+    X_test,y_test = make_data(x_test,y1_test,y2_test)
+    
+    # Build model
+    model1 = build_unet(input_shape = (512,512,3))
+    
+    # Compile model
+    # model1.compile(loss = tf.keras.losses.BinaryCrossentropy(from_logits=True),
+    #           optimizer = tf.keras.optimizers.Adam(),
+    #           metrics = ['accuracy']
+    #           )
+    metrics = [dice_coef,iou,Recall(),Precision()]
+    model.compile(loss = dice_loss,optimizer = Adam(learning_rate=lr))
+    
+    # Train model
+    history = model1.fit(X_train,y_train,
+            epochs = 10,
+            batch_size = 2, # OOM problem
+            validation_data = (X_valid,y_valid),
+            validation_steps = int(0.1*len(y_valid)),
+            )
+    
+    # Save model
+    pd.Dataframe(history.history).plot()
+    plt.savefig()
+
+    
+    
