@@ -16,15 +16,15 @@
 
 # Dataset
 
-![visual](img\valid.png)
+![visual](./img/valid.png)
 
 # Ouput
 
-![Output](img\model1_output.png)
+![Output](./img/model1_output.png)
 
 # Prediction & Evaluation
 
-![Prediction](predictions\l3_predicted.png)
+![Prediction](./predictions/l3_predicted.png)
 
 # References
 
