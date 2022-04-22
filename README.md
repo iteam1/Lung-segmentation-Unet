@@ -1,5 +1,9 @@
 # Lung-segmentation-Unet
 
+# Model architecture
+
+![Unet](img\u-net-architecture.png)
+
 - Dataset: https://academictorrents.com/details/ac786f74878a5775c81d490b23842fd4736bfe33
 
 - Number of image in dataset: 139 
@@ -9,6 +13,18 @@
 - Model file `model.h5`
 
 - learning_rate `1e-5`
+
+# Dataset
+
+![visual](img\valid.png)
+
+# Ouput
+
+![Output](img\model1_output.png)
+
+# Prediction & Evaluation
+
+![Prediction](predictions\l3_predicted.png)
 
 # References
 
