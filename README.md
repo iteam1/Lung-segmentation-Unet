@@ -8,8 +8,13 @@
 
 - Model file `model.h5`
 
+- learning_rate `1e-5`
 
 # References
+
+https://www.youtube.com/watch?v=J_XSd_u_Yew&list=PLsM05n4rlXWSVv0mNvv04EBI6fnQ8_ihR&index=63&t=1111s
+
+https://github.com/bnsreenu/python_for_microscopists.git
 
 https://www.youtube.com/watch?v=LkmgdNpcgTM
 
