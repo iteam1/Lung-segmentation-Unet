@@ -2,7 +2,7 @@
 
 # Model architecture
 
-![Unet](img\u-net-architecture.png)
+![Unet](./img/u-net-architecture.png)
 
 - Dataset: https://academictorrents.com/details/ac786f74878a5775c81d490b23842fd4736bfe33
 
