@@ -16,6 +16,8 @@
 
 # Dataset
 
+![input](./img/input_mask.png)
+
 ![visual](./img/valid.png)
 
 # Ouput
