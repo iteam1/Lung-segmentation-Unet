@@ -1,6 +1,6 @@
 # Lung-segmentation-Unet
 
-# Model architecture
+### Model architecture
 
 ![Unet](./img/u-net-architecture.png)
 
@@ -14,21 +14,21 @@
 
 - learning_rate `1e-5`
 
-# Dataset
+### Dataset
 
 ![input](./img/input_mask.png)
 
 ![visual](./img/valid.png)
 
-# Ouput
+### Ouput
 
 ![Output](./img/model1_output.png)
 
-# Prediction & Evaluation
+### Prediction & Evaluation
 
 ![Prediction](./predictions/l3_predicted.png)
 
-# References
+### References
 
 https://www.youtube.com/watch?v=J_XSd_u_Yew&list=PLsM05n4rlXWSVv0mNvv04EBI6fnQ8_ihR&index=63&t=1111s
 
