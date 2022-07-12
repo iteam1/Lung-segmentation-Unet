@@ -30,10 +30,7 @@
 
 ### References
 
-https://www.youtube.com/watch?v=J_XSd_u_Yew&list=PLsM05n4rlXWSVv0mNvv04EBI6fnQ8_ihR&index=63&t=1111s
 
-https://github.com/bnsreenu/python_for_microscopists.git
+[python_for_microscopists](https://github.com/bnsreenu/python_for_microscopists.git)
 
-https://www.youtube.com/watch?v=LkmgdNpcgTM
-
-https://github.com/nikhilroxtomar/Lung-Segmentation-in-TensorFlow-2.0/tree/main/UNET
+[Lung-Segmentation-in-TensorFlow-2.0](https://github.com/nikhilroxtomar/Lung-Segmentation-in-TensorFlow-2.0/tree/main/UNET)
